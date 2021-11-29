@@ -320,7 +320,7 @@ def command():
     try:
         query = c.recognize_google(audio, language=Language1)
         print("User: " + query)
-        print("log- successfull")
+        print("log- successfull input")
         return query
     except sr.UnknownValueError:
         #print('Sorry sir! I didn\'t get that! Try typing the command!')
@@ -338,6 +338,10 @@ if __name__ == "__main__":
         query = command()
         #c_query = query.lower()
         # All the command will store in lower case for easy recognition
-        speak(f'{query}')
+        if(query == None):
+            print("Error: Google voice error.")
+        else:
+            speak(query)
+            print("log- successfull output")
 
 
