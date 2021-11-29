@@ -1,2 +1,2 @@
 # VTuber-TTS
-deutsches live text to speech programm für vtubing
+Multi-Language live text to speech programm for vtubing
