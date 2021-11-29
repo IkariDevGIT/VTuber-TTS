@@ -1,4 +1,4 @@
-import Languages as Languages
+# import Languages as Languages
 
 lang = """
 af	Afrikaans
@@ -245,16 +245,22 @@ from os import system
 import pyttsx3
 import datetime
 import speech_recognition as sr
-import webbrowser as wb
+import ctypes
+# import webbrowser as wb
 import os
 
 system("VTuber TTS by ikaridev")
 friday = pyttsx3.init()
 voices = friday.getProperty('voices')
-
+kernel32 = ctypes.WinDLL('kernel32', use_last_error=True); kernel32.SetConsoleTitleW(u"VTuber TTS by ikaride")
 
 for voice in voices:
     # to get the info. about various voices in our PC
+    print("")
+    print("Languages Known:")
+    print("")
+    print(lang)
+    print("")
     print("Voices on your pc:")
     print("")
     print("Voice:")
@@ -262,17 +268,15 @@ for voice in voices:
     print("Name: %s" % voice.name)
     print("Age: %s" % voice.age)
     print("Gender: %s" % voice.gender)
-    print("Languages Known: %s" % voice.languages)
-    print("")
     print("")
     print("")
     print("")
 
-print("Languages:")
-print()
-print("")
-print("--------------------")
-print("")
+# print("Languages:")
+# print()
+# print("")
+# print("--------------------")
+# print("")
 
 print("Tip: 0 is the default voice")
 print("Voice id:")
@@ -309,12 +313,10 @@ def welcome():
     print("started")
 
 
-
-
 def command():
     c = sr.Recognizer()
     with sr.Microphone() as source:
-        #c.pause_threshold = 1
+        # c.pause_threshold = 1
         audio = c.listen(source)
         print("log- Starting.")
     try:
@@ -323,12 +325,10 @@ def command():
         print("log- successfull input")
         return query
     except sr.UnknownValueError:
-        #print('Sorry sir! I didn\'t get that! Try typing the command!')
-        #query = str(input('Your order is: '))
+        # print('Sorry sir! I didn\'t get that! Try typing the command!')
+        # query = str(input('Your order is: '))
         print("log- No input or not understood, going to start.")
         command()
-
-
 
 
 if __name__ == "__main__":
@@ -336,12 +336,10 @@ if __name__ == "__main__":
 
     while True:
         query = command()
-        #c_query = query.lower()
+        # c_query = query.lower()
         # All the command will store in lower case for easy recognition
-        if(query == None):
+        if (query == None):
             print("Error: Google voice error.")
         else:
             speak(query)
             print("log- successfull output")
-
-
